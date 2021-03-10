@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { StandardWarpEntity } from '../../models/standardWarp.entity';
+import { Admin } from "./admin.entity";
 
 @Entity('admin_login_logs')
 export class AdminLoginLog extends StandardWarpEntity {
@@ -12,6 +13,10 @@ export class AdminLoginLog extends StandardWarpEntity {
   @Column({ name: 'token', type: 'longtext', nullable: false})
   token: string;
 
-  @Column({ name: 'admin_id', type: 'int', unsigned: true})
-  admin_id: number;
+  @OneToOne(() => Admin , {
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
+  @JoinColumn({ name: "admin_id", referencedColumnName: "admin_id"})
+  admin: Admin;
 }

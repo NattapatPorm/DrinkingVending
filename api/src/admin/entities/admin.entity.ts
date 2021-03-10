@@ -1,5 +1,6 @@
-import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, Index, JoinColumn, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { StandardWarpEntity } from '../../models/standardWarp.entity';
+import { AdminLog } from "./admin_logs.entity";
 
 @Entity('admin')
 export class Admin extends StandardWarpEntity {
@@ -13,4 +14,8 @@ export class Admin extends StandardWarpEntity {
 
   @Column({ name: 'admin_password', type: 'varchar', length: 64, nullable: false, })
   admin_password: string;
+
+  @OneToMany(() => AdminLog, adminLog  => adminLog.admin)
+  @JoinColumn({ name: "admin_id"})
+  adminLogs: AdminLog[];
 }

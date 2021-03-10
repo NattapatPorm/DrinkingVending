@@ -28,6 +28,7 @@ export class AdminService {
   ) {}
 
   signUp = async (signupData: SignUpDto): Promise<ServiceResultUtil> => {
+
     const { username, password } = signupData;
     const adminSignUp = new Admin();
     adminSignUp.admin_username = username;
@@ -36,15 +37,15 @@ export class AdminService {
     const serviceResult = new ServiceResultUtil();
 
     try {
-      // const adminLog = new AdminLog();
-      // adminLog.role = role;
-      // adminLog.admin = adminSignUp;
-      // adminLog.log_action = "admin signUp"
-      // adminLog.log_infomation = JSON.stringify(adminSignUp);
-      //
-      // adminSignUp.adminLogs = [adminLog];
-      // adminSignUp.save();
-      // adminLog.save();
+
+      const adminLog = new AdminLog();
+      adminLog.admin = adminSignUp;
+      adminLog.log_action = "admin signUp"
+      adminLog.log_infomation = JSON.stringify(adminSignUp);
+
+      adminSignUp.adminLogs = [adminLog];
+      adminSignUp.save();
+      adminLog.save();
 
       serviceResult.setMessage("Success");
       serviceResult.setSuccess(true);
@@ -68,7 +69,7 @@ export class AdminService {
         const adminLoginLog = new AdminLoginLog();
         adminLoginLog.login_time = new Date();
         adminLoginLog.token = accessToken;
-        // adminLoginLog.admin = admin;
+        adminLoginLog.admin = admin;
         adminLoginLog.save();
         serviceResult.setResult(accessToken);
         serviceResult.setMessage("Success");
