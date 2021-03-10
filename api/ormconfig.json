@@ -1,0 +1,16 @@
+[
+  {
+    "name": "default",
+    "type": "mysql",
+    "host": "127.0.0.1",
+    "port": 3306,
+    "username": "root",
+    "password": "assignment1234",
+    "database": "scg_assignment",
+    "entities": ["dist/**/*.entity{ .ts,.js}"],
+    "synchronize": false,
+    "migrations": ["dist/migration/*{.ts,.js}"],
+    "migrationsTableName": "scg_assignment_migrations",
+    "migrationsRun": true
+  }
+]
