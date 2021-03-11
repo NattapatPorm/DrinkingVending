@@ -31,4 +31,10 @@ export class ProductsController {
         const result = await this.productsService.buyProduct(buyProduct);
         res.status(HTTP_STATUS_CODES.OK).send(result);
     }
+
+    @Get('/findByQuantiy')
+    async findByQuantiy(@Res() res: Response) {
+        const result = await this.productsService.findProductByQuantity();
+        res.status(HTTP_STATUS_CODES.OK).send(result);
+    }
 }

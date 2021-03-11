@@ -1,8 +1,0 @@
-export enum AdminRole {
-  DEVELOPER_ADMIN = 1,
-  OFFICIAL_ADMIN = 2,
-  PRODUCT_ADMIN = 3,
-  DESIGN_EDITOR = 4,
-  CONTENT_EDITOR =5,
-  HR_ADMIN = 6,
-}

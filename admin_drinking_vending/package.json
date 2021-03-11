@@ -9,9 +9,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "ant-design-vue": "^1.7.2",
+    "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
+    "bootstrap-vue": "^2.21.2",
     "core-js": "^3.8.3",
+    "longdo-map-vue": "^1.0.5",
     "nuxt": "^2.14.12"
-  },
-  "devDependencies": {}
+  }
 }
