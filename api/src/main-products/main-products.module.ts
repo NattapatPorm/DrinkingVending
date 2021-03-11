@@ -3,12 +3,12 @@ import { MainProductsController } from './main-products.controller';
 import { MainProductsService } from './main-products.service';
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { AuthModule } from "../auth/auth.module";
-import { MainProduct } from "./entities/mainProduct.entity";
-import { MainProductLog } from "./entities/mainProduct_logs.entity";
+import {MainProductLogRepository} from "./repositories/mainProductLog.repository";
+import {MainProductRepository} from "./repositories/mainProduct.repository";
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([MainProduct, MainProductLog]),
+    TypeOrmModule.forFeature([MainProductRepository, MainProductLogRepository]),
     AuthModule,
   ],
   controllers: [MainProductsController],

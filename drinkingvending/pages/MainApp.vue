@@ -2,7 +2,6 @@
   <div>
     <Header />
     <MachineApp />
-    <Footer />
   </div>
 </template>
 
