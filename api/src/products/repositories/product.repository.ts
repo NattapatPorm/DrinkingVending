@@ -27,4 +27,17 @@ export class ProductRepository extends Repository<Product> {
 
         return true;
     }
+
+    findProductInfoByQuantity = async () : Promise<Product[]> => {
+        const query = this.createQueryBuilder('products')
+
+        const products = await query
+            .andWhere('products.product_quantity < 10')
+            .leftJoinAndSelect("products.mainproduct_id", "mainproducts")
+            .leftJoinAndSelect("products.machine", "machines")
+            .leftJoinAndSelect("machines.machine_location_id", "locations")
+            .getMany();
+
+        return products;
+    }
 }

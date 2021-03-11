@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <b-row v-if="pageState === 0" >
-      <b-col cols="6" md="4" >
+      <b-col cols="8" md="6" lg="4">
         <b-form-select
           v-model="selectedMachine"
           :options="MachineList"
@@ -11,12 +11,12 @@
           disabled-field="notEnabled"
         ></b-form-select>
       </b-col>
-      <b-col cols="6" md="4">
+      <b-col cols="4" md="6" lg="4">
         <b-button variant="primary" class="m-3" @click="selectedLocation">Select location</b-button>
       </b-col>
     </b-row>
     <b-row v-if="pageState === 1">
-      <b-col cols="6" md="4" v-for="product in ProductLists" :key="product.id">
+      <b-col cols="12" md="6" lg="4"  v-for="product in ProductLists" :key="product.id">
         <ProductCard :Product=product />
       </b-col>
     </b-row>

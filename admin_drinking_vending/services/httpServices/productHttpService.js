@@ -12,4 +12,8 @@ export default {
       productNumber: productNumber,
     })
   },
+
+  checkProductQuantity() {
+    return apiServices.get('/products/findByQuantiy');
+  },
 }

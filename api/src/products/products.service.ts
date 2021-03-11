@@ -3,6 +3,7 @@ import {InjectRepository} from "@nestjs/typeorm";
 import {ProductRepository} from "./repositories/product.repository";
 import {ServiceResultUtil} from "../utils/httpResponseService/serviceResult.util";
 import {BuyProductDto} from "./dto/buyProduct.dto";
+import {LessThan} from "typeorm";
 
 @Injectable()
 export class ProductsService {
@@ -35,6 +36,18 @@ export class ProductsService {
         serviceResult.setResult(`product id : ${productId} total quantity: ${quantity}`);
         serviceResult.setSuccess(true);
         serviceResult.setMessage(`Buy product id : ${productId} success...`);
+
+        return serviceResult;
+    }
+
+    findProductByQuantity = async (): Promise<ServiceResultUtil> => {
+
+        const product = await this.productRepository.findProductInfoByQuantity();
+
+        const serviceResult = new ServiceResultUtil();
+        serviceResult.setResult(product);
+        serviceResult.setSuccess(true);
+        serviceResult.setMessage(`Check quantity product success...`);
 
         return serviceResult;
     }

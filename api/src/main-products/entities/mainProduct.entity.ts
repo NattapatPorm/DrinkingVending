@@ -1,6 +1,5 @@
 import { Column, Entity, Index, JoinColumn, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { StandardWarpEntity } from "../../models/standardWarp.entity";
-import { MainProductLog } from "./mainProduct_logs.entity";
 import {Product} from "../../products/entities/Product.entity";
 
 @Entity('mainproducts')
@@ -14,10 +13,6 @@ export class MainProduct extends StandardWarpEntity {
 
     @Column({ name: 'mainproduct_image', type: 'varchar', length: 255, nullable: false, })
     mainproduct_image: string;
-
-    @OneToMany(() => MainProductLog, mainProductLog  => mainProductLog.main_poduct)
-    @JoinColumn({ name: "mainproduct_id"})
-    mainproduct_log: MainProductLog[];
 
     @OneToMany(() => Product, product  => product.mainproduct_id)
     @JoinColumn({ name: "mainproduct_id"})

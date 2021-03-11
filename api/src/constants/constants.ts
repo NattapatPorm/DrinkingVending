@@ -5,8 +5,4 @@ export const constantValue = {
     BAD_REQUEST: 500,
     NOT_FOUND: 404,
   },
-
-  UPLOAD: {
-    IMAGE_MAX_COUNT: 5,
-  },
 }
