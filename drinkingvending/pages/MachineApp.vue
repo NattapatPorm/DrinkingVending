@@ -19,6 +19,7 @@
       <b-col cols="12" md="6" lg="4"  v-for="product in ProductLists" :key="product.id">
         <ProductCard :Product=product />
       </b-col>
+      <b-button block variant="danger" @click="pageState = 0">Back to select locations</b-button>
     </b-row>
   </b-container>
 </template>
